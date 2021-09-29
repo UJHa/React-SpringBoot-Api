@@ -45,7 +45,7 @@ class ProductJdbcRepositoryTest {
     @Autowired
     ProductRepository repository;
 
-    private final Product newProduct = new Product(UUID.randomUUID(), "new-product", Category.COFFEE_BEAN_PACKAGE, 1000L);
+    private static final Product newProduct = new Product(UUID.randomUUID(), "new-product", Category.COFFEE_BEAN_PACKAGE, 1000L);
 
     @Test
     @Order(1)
@@ -54,5 +54,29 @@ class ProductJdbcRepositoryTest {
         repository.insert(newProduct);
         var all = repository.findAll();
         assertThat(all.isEmpty(), is(false));
+    }
+
+    @Test
+    @Order(2)
+    @DisplayName("상품 이름으로 조회하기")
+    void testFindByName() {
+        var product = repository.findByName(newProduct.getProductName());
+        assertThat(product.isEmpty(), is(false));
+    }
+
+    @Test
+    @Order(3)
+    @DisplayName("상품 아이디로 조회하기")
+    void testFindByID() {
+        var product = repository.findById(newProduct.getProductId());
+        assertThat(product.isEmpty(), is(false));
+    }
+
+    @Test
+    @Order(4)
+    @DisplayName("상품 카테고리로 조회하기")
+    void testFindByCategory() {
+        var product = repository.findByCategory(newProduct.getCategory());
+        assertThat(product.isEmpty(), is(false));
     }
 }

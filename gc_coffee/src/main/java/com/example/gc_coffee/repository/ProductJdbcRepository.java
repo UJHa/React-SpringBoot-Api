@@ -53,7 +53,7 @@ public class ProductJdbcRepository implements ProductRepository{
     }
 
     @Override
-    public Optional<Product> findByName(UUID productName) {
+    public Optional<Product> findByName(String productName) {
         try {
             return Optional.of(
                     jdbcTemplate.queryForObject("SELECT * FROM products WHERE product_name = :productName",
