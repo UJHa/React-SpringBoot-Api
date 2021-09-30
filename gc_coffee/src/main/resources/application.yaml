@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/order_mgmt
+    hikari:
+      username: root
+      password: root1234!
