@@ -27,32 +27,32 @@ public class OrderJdbcRepository implements OrderRepository {
         toOrderParamMap(order));
         order.getOrderItems()
                 .forEach(item -> jdbcTemplate.update("INSERT INTO order_items(order_id, product_id, category, price, quantity, created_at, updated_at) " +
-                        "VALUES (:orderId, :productId, :category, :price, :quantity, :createdAt, :updatedAt)",
+                        "VALUES (UNHEX(REPLACE(:orderId, '-', '')), UNHEX(REPLACE(:productId, '-', '')), :category, :price, :quantity, :createdAt, :updatedAt)",
                         toOrderItemParamMap(order.getOrderId(), order.getCreatedAt(), order.getUpdatedAt(), item)));
         return order;
     }
 
     private Map<String, Object> toOrderParamMap(Order order) {
         var paramMap = new HashMap<String, Object>();
-        paramMap.put("order_id", order.getOrderId().toString().getBytes());
+        paramMap.put("orderId", order.getOrderId().toString().getBytes());
         paramMap.put("email", order.getEmail().getAddress());
         paramMap.put("address", order.getAddress());
         paramMap.put("postcode", order.getPostcode());
-        paramMap.put("order_status", order.getOrderStatus().toString());
-        paramMap.put("created_at", order.getCreatedAt());
-        paramMap.put("updated_at", order.getUpdatedAt());
+        paramMap.put("orderStatus", order.getOrderStatus().toString());
+        paramMap.put("createdAt", order.getCreatedAt());
+        paramMap.put("updatedAt", order.getUpdatedAt());
         return paramMap;
     }
 
-    private Map<String, Object> toOrderItemParamMap(UUID orderId, LocalDateTime createAt, LocalDateTime updatedAt, OrderItem orderItem) {
+    private Map<String, Object> toOrderItemParamMap(UUID orderId, LocalDateTime createAt, LocalDateTime updatedAt, OrderItem item) {
         var paramMap = new HashMap<String, Object>();
-        paramMap.put("order_id", orderId.toString().getBytes());
-        paramMap.put("product_id", orderItem.productId().toString().getBytes());
-        paramMap.put("category", orderItem.category().toString());
-        paramMap.put("price", orderItem.price());
-        paramMap.put("quantity", orderItem.quantity());
-        paramMap.put("created_at", createAt);
-        paramMap.put("updated_at", updatedAt);
+        paramMap.put("orderId", orderId.toString().getBytes());
+        paramMap.put("productId", item.productId().toString().getBytes());
+        paramMap.put("category", item.category().toString());
+        paramMap.put("price", item.price());
+        paramMap.put("quantity", item.quantity());
+        paramMap.put("createdAt", createAt);
+        paramMap.put("updatedAt", updatedAt);
         return paramMap;
     }
 }
