@@ -2,9 +2,11 @@
 ## 프로젝트 소개
 ### 프로젝트 목적
 Spring Boot web mvc를 사용한 CRUD
+
 Front - Back 구현으로 사용자의 요청에 대한 서버의 처리 과정을 구현하기
 ### 프로젝트 사용 기술
 Frontend : React
+
 Backend : Spring Boot
 DB : MySql 5.7+
 
