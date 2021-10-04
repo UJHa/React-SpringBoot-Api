@@ -1,7 +1,8 @@
 # [프로젝트] React - Spring Boot 상품 관리 API 구현
 ## 프로젝트 소개
+커피 상품을 주문하기 위한 커피 주문 관리 서비스입니다.
 ### 프로젝트 목적
-Spring Boot web mvc를 사용한 CRUD
+Spring Bootㄹ web mvc를 사용한 CRUD
 
 Front - Back 구현으로 사용자의 요청에 대한 서버의 처리 과정을 구현하기
 ### 프로젝트 사용 기술
