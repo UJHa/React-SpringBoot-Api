@@ -9,6 +9,7 @@ Front - Back 구현으로 사용자의 요청에 대한 서버의 처리 과정�
 Frontend : React
 
 Backend : Spring Boot
+
 DB : MySql 5.7+
 
 
