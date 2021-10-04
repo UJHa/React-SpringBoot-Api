@@ -1,15 +1,22 @@
 # [프로젝트] React - Spring Boot 상품 관리 API 구현
-## 프로젝트 소개 😎
-React로 만들어진 Front End가 정해져있는 상황에서,
-백엔드 개발자가 Spring Boot로 상품관리 API를 구현하여 최종 서비스를 완성시켜봅니다.
+## 프로젝트 소개
+### 프로젝트 목적
+Spring Boot web mvc를 사용한 CRUD
+Front - Back 구현으로 사용자의 요청에 대한 서버의 처리 과정을 구현하기
+### 프로젝트 사용 기술
+Frontend : React
+Backend : Spring Boot
+DB : MySql 5.7+
 
-## 이곳은 공개 Repo입니다.
-1. 여러분의 포트폴리오로 사용하셔도 됩니다.
-2. 때문에 이 repo를 fork한 뒤
-3. 여러분의 개인 Repo에 작업하며 
-4. 이 Repo에 PR을 보내어 멘토의 코드 리뷰와 피드백을 받으세요.
 
-## Branch 명명 규칙
-1.  여러분 repo는 알아서 해주시고 😀(본인 레포니 main으로 하셔두 되져)
-2.  prgrms-be-devcourse/spring-board 레포로 PR시 branch는 본인 username을 적어주세요 :)  
-base repo : `여기repo` base : `username` ← head repo : `여러분repo` compare : `main`
+## 요구사항
+1. 사용자의 주문 가능한 상품 리스트를 서버에서 불러오기
+2. 주문 시 사용자의 정보(이메일, 주소)를 입력하여 서버에 전달하기
+3. Front에서 받은 요청 정보를 검증하여 DB에 저장하기
+
+## 구성도
+![image](https://user-images.githubusercontent.com/22016754/135780211-4e5554d7-9994-4c49-94fb-53ee0f3776ed.png)
+
+
+## 흐름도
+![image](https://user-images.githubusercontent.com/22016754/135780260-a60b86d9-edbb-4d6e-9db8-a607f73d9737.png)
